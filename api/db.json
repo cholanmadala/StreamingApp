@@ -1,34 +1,20 @@
 {
   "streams": [
     {
-      "title": "MyFirstStream",
-      "description": "Cholan's first stream",
+      "title": "first stream",
+      "description": "sample stream",
       "id": 1
     },
     {
-      "title": "new stream",
-      "description": "one small stream",
+      "title": "CHOLAN STREAM",
+      "description": "This is a sample stream",
       "id": 2
     },
     {
-      "title": "sdf",
-      "description": "fdgsdgds",
+      "title": "create by me",
+      "description": "this stream is created by me",
+      "userId": "103007581788896768887",
       "id": 3
-    },
-    {
-      "title": "test stream",
-      "description": "testing",
-      "id": 4
-    },
-    {
-      "title": "cnew",
-      "description": "saldf",
-      "id": 5
-    },
-    {
-      "title": "asdfs",
-      "description": "sdfda fsa fsdf",
-      "id": 6
     }
   ]
 }

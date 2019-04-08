@@ -14,7 +14,8 @@ const streamReducer = (state={}, action) => {
 
 		case GET_STREAMS_LIST:
 		return {
-			...action.payload
+			...state,
+			..._.mapKeys(action.payload, 'id')
 		};
 
 		case GET_SINGLE_STREAM: 
@@ -36,7 +37,7 @@ const streamReducer = (state={}, action) => {
 		}
 
 		case DELETE_STREAM:
-		return _.omit(state.action.payload);
+		return _.omit(state, action.payload);
 
 		default :
 		return state;

@@ -23,9 +23,9 @@ export const signOut = () => {
 }
 
 // create a  new stream
-export const createStream = formValues => async dispatch =>  {
-	const response = await streams.post('/streams', formValues);
-	console.log('response of api', response);
+export const createStream = formValues => async (dispatch, getState) =>  {
+	const {userId} = getState().auth;
+	const response = await streams.post('/streams', {...formValues, userId});
 	return dispatch({
 		type: CREATE_STREAM,
 		payload: response.data
@@ -34,7 +34,6 @@ export const createStream = formValues => async dispatch =>  {
 
 // delete a stream
 export const deleteStream = streamId => async dispatch => {
-	console.log(streamId);
 	await streams.delete(`/streams/${streamId}`);
 	return dispatch({
 		type: DELETE_STREAM,
@@ -45,7 +44,6 @@ export const deleteStream = streamId => async dispatch => {
 //fetch all the streams
 export const getStreamsList = () => async dispatch => {
 	const response = await streams.get('/streams');
-	console.log('response of api', response);
 	return dispatch({
 		type: GET_STREAMS_LIST,
 		payload: response.data
@@ -55,7 +53,6 @@ export const getStreamsList = () => async dispatch => {
 //fetch a particular stream
 export const getSingleStream = streamId => async dispatch => {
 	const response = await streams.get(`/streams/${streamId}`);
-	console.log('response of api', response);
 	return dispatch({
 		type: GET_SINGLE_STREAM,
 		payload: response.data
@@ -65,7 +62,6 @@ export const getSingleStream = streamId => async dispatch => {
 //update a stream
 export const updateStream = ({streamId, updatedData}) => async dispatch => {
 	const response = await streams.put(`/streams/${streamId}`, updatedData);
-	console.log('response of api', response);
 	return dispatch({
 		type: UPDATE_STREAM,
 		payload: response.data
