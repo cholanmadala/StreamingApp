@@ -6,7 +6,7 @@ import {getStreamsList} from '../../actions';
 
 class Header extends React.Component {
 	componentDidMount(){
-		this.props.getStreamsList();
+		// this.props.getStreamsList();
 	}
 
 	render() {

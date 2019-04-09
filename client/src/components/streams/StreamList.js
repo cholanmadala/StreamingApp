@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {getStreamsList} from '../../actions';
+import {getStreamsList, updateStream, deleteStream} from '../../actions';
 import {Link} from 'react-router-dom';
 
 class StreamList extends React.Component {
@@ -8,15 +8,19 @@ class StreamList extends React.Component {
 		this.props.getStreamsList();
 	}
 
-	renderAdmin = (userId) => {
+	renderAdmin = (userId, id) => {
 		if (userId === this.props.currentUserId) {
 			return (
 				<div className="right floated content">
-					<button className="ui button primary">Edit</button>
-					<button className="ui button negative">Delete</button>
+					<button className="ui button primary" onClick={() => this.updateStream(id)}>Edit</button>
+					<button className="ui button negative" onClick={() => this.props.deleteStream(id)}>Delete</button>
 				</div>
 			);
 		}
+	}
+
+	updateStream = (id) => {
+		console.log(id);
 	}
 
 	renderList = () => {
@@ -24,12 +28,12 @@ class StreamList extends React.Component {
 			return this.props.streams.map(({title, description, id, userId})=>{
 				return (
 					<div key={id} className="item">
-						{this.renderAdmin(userId)}
+						{this.renderAdmin(userId, id)}
 						<i className="large middle aligned icon camera"/>
 						<div className="content">
 							{title}
 							<div className="description">{description}</div>
-						</div>						
+						</div>
 					</div>
 				);
 			});
@@ -40,6 +44,16 @@ class StreamList extends React.Component {
 		}
 	}
 
+	renderCreate = ()=>{
+		if (this.props.isSignedIn) {
+			return (
+				<div style={{"textAlign": "right"}}>
+					<Link to="/streams/new" className="ui button primary">Create New</Link>
+				</div>
+			)
+		}
+	}
+
 	render() {
 		return (
 			<div>
@@ -47,6 +61,7 @@ class StreamList extends React.Component {
 				<div className="ui celled list">
 					{this.renderList()}
 				</div>
+				{this.renderCreate()}
 			</div>
 		);
 	}
@@ -55,8 +70,9 @@ class StreamList extends React.Component {
 const mapStateToProps = ({streams, auth}) => {
 	return {
 		streams: Object.values(streams),
-		currentUserId: auth.userId
+		currentUserId: auth.userId,
+		isSignedIn: auth.isSignedIn
 	}
 }
 
-export default connect(mapStateToProps, {getStreamsList} )(StreamList);
+export default connect(mapStateToProps, {getStreamsList, updateStream, deleteStream} )(StreamList);

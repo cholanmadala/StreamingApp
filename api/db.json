@@ -9,12 +9,6 @@
       "title": "CHOLAN STREAM",
       "description": "This is a sample stream",
       "id": 2
-    },
-    {
-      "title": "create by me",
-      "description": "this stream is created by me",
-      "userId": "103007581788896768887",
-      "id": 3
     }
   ]
 }
