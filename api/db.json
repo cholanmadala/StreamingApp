@@ -9,6 +9,24 @@
       "title": "CHOLAN STREAM",
       "description": "This is a sample stream",
       "id": 2
+    },
+    {
+      "title": "New Stream",
+      "description": "This is a sample stream",
+      "userId": "103007581788896768887",
+      "id": 3
+    },
+    {
+      "title": "One stream",
+      "description": "THis is again a sample stream",
+      "userId": "103007581788896768887",
+      "id": 4
+    },
+    {
+      "title": "Programmatic Navigation",
+      "description": "This is done using programmatic navigation on successful api call using our own history object instead of BrowserRouter. We used a plain Router with our own history object using \"createBrowserHistory\" Method.",
+      "userId": "103007581788896768887",
+      "id": 5
     }
   ]
 }

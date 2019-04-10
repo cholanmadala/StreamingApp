@@ -1,4 +1,5 @@
 import streams from '../apis/streams';
+import history from '../history';
 import {
 	SIGN_IN,
 	SIGN_OUT,
@@ -26,16 +27,19 @@ export const signOut = () => {
 export const createStream = formValues => async (dispatch, getState) =>  {
 	const {userId} = getState().auth;
 	const response = await streams.post('/streams', {...formValues, userId});
-	return dispatch({
+	dispatch({
 		type: CREATE_STREAM,
 		payload: response.data
 	});
+	//navigate to streamsList page programmatically 
+	//using our own history object on successful api call
+	history.push('/');
 }
 
 // delete a stream
 export const deleteStream = streamId => async dispatch => {
 	await streams.delete(`/streams/${streamId}`);
-	return dispatch({
+	dispatch({
 		type: DELETE_STREAM,
 		payload: streamId
 	});
@@ -44,7 +48,7 @@ export const deleteStream = streamId => async dispatch => {
 //fetch all the streams
 export const getStreamsList = () => async dispatch => {
 	const response = await streams.get('/streams');
-	return dispatch({
+	dispatch({
 		type: GET_STREAMS_LIST,
 		payload: response.data
 	});
@@ -53,7 +57,7 @@ export const getStreamsList = () => async dispatch => {
 //fetch a particular stream
 export const getSingleStream = streamId => async dispatch => {
 	const response = await streams.get(`/streams/${streamId}`);
-	return dispatch({
+	dispatch({
 		type: GET_SINGLE_STREAM,
 		payload: response.data
 	});
@@ -62,7 +66,7 @@ export const getSingleStream = streamId => async dispatch => {
 //update a stream
 export const updateStream = ({streamId, updatedData}) => async dispatch => {
 	const response = await streams.put(`/streams/${streamId}`, updatedData);
-	return dispatch({
+	dispatch({
 		type: UPDATE_STREAM,
 		payload: response.data
 	});
