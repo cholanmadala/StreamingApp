@@ -31,7 +31,7 @@ export const createStream = formValues => async (dispatch, getState) =>  {
 		type: CREATE_STREAM,
 		payload: response.data
 	});
-	//navigate to streamsList page programmatically 
+	//navigate to streamsList page programmatically
 	//using our own history object on successful api call
 	history.push('/');
 }
@@ -70,4 +70,7 @@ export const updateStream = ({streamId, updatedData}) => async dispatch => {
 		type: UPDATE_STREAM,
 		payload: response.data
 	});
+	//navigate to streamsList page programmatically
+	//using our own history object on successful api call
+	history.push('/');
 }

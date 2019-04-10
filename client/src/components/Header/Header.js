@@ -13,7 +13,7 @@ class Header extends React.Component {
 		return (
 			<div className="ui secondary pointing menu">
 					<Link to="/" className="item">
-						Header
+						<h3>My Streamy</h3>
 					</Link>
 					<div className="right menu">
 						<Link to="/" className="item">
