@@ -43,6 +43,9 @@ export const deleteStream = streamId => async dispatch => {
 		type: DELETE_STREAM,
 		payload: streamId
 	});
+	//navigate to streamsList page programmatically
+	//using our own history object on successful api call
+	history.push('/');
 }
 
 //fetch all the streams

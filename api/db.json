@@ -6,34 +6,16 @@
       "id": 1
     },
     {
-      "title": "Editing again Old New Stream",
-      "description": "This is a sample stream",
+      "title": "All Streams",
+      "description": "LLL",
+      "userId": "103007581788896768887",
+      "id": 2
+    },
+    {
+      "title": "Hello",
+      "description": "New Stream",
       "userId": "103007581788896768887",
       "id": 3
-    },
-    {
-      "title": "Two One streamggggg",
-      "description": "THis is again a sample streamdfsf ",
-      "userId": "103007581788896768887",
-      "id": 4
-    },
-    {
-      "title": "Edit Programmatic Navigation   ",
-      "description": "This is done using programmatic navigation on successful api call using our own history object instead of BrowserRouter. We used a plain Router with our own history object using \"createBrowserHistory\" Method.",
-      "userId": "103007581788896768887",
-      "id": 5
-    },
-    {
-      "title": "Patched",
-      "description": "Refactored/....",
-      "userId": "103007581788896768887",
-      "id": 6
-    },
-    {
-      "title": "Edited after patch",
-      "description": "one more",
-      "userId": "103007581788896768887",
-      "id": 7
     }
   ]
 }
