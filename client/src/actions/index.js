@@ -65,7 +65,7 @@ export const getSingleStream = streamId => async dispatch => {
 
 //update a stream
 export const updateStream = ({streamId, updatedData}) => async dispatch => {
-	const response = await streams.put(`/streams/${streamId}`, updatedData);
+	const response = await streams.patch(`/streams/${streamId}`, updatedData);
 	dispatch({
 		type: UPDATE_STREAM,
 		payload: response.data
