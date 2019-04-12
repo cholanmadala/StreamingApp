@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {getStreamsList, updateStream, deleteStream} from '../../actions';
+import {getStreamsList, deleteStream} from '../../actions';
 import {Link} from 'react-router-dom';
 
 class StreamList extends React.Component {
@@ -29,10 +29,6 @@ class StreamList extends React.Component {
 		}
 	}
 
-	updateStream = (id) => {
-		console.log(id);
-	}
-
 	renderList = () => {
 		if (this.props.streams.length) {
 			return this.props.streams.map(({title, description, id, userId})=>{
@@ -41,9 +37,12 @@ class StreamList extends React.Component {
 						{this.renderAdmin(userId, id)}
 						<i className="large middle aligned icon camera"/>
 						<div className="content">
-							<b>{title}</b>
+							<Link to={`/streams/${id}`} className="header" >
+								<b>{title}</b>
+							</Link>
 							<div className="description">{description}</div>
 						</div>
+
 					</div>
 				);
 			});
@@ -85,4 +84,4 @@ const mapStateToProps = ({streams, auth}) => {
 	}
 }
 
-export default connect(mapStateToProps, {getStreamsList, updateStream, deleteStream} )(StreamList);
+export default connect(mapStateToProps, {getStreamsList, deleteStream} )(StreamList);

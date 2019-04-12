@@ -6,16 +6,28 @@
       "id": 1
     },
     {
-      "title": "All Streams",
-      "description": "LLL",
+      "title": "ALL India Radio",
+      "description": "Radio allover india",
       "userId": "103007581788896768887",
       "id": 2
     },
     {
-      "title": "Hello",
-      "description": "New Stream",
+      "title": "React Js Streams",
+      "description": "This is a sample streamsds",
       "userId": "103007581788896768887",
       "id": 3
+    },
+    {
+      "title": "Today's India!!",
+      "description": "Here you can see the latest things about India",
+      "userId": "103007581788896768887",
+      "id": 4
+    },
+    {
+      "title": "Cholan's Stream",
+      "description": "This is a stream created by Cholan",
+      "userId": "103007581788896768887",
+      "id": 5
     }
   ]
 }
